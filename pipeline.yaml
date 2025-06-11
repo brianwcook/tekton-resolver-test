@@ -16,4 +16,4 @@ spec:
       steps:
       - image: alpine:3
         script: |
-          echo "hello $(params.username) changed"
+          echo "hello $(params.username)"
