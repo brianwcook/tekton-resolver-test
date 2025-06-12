@@ -3,20 +3,12 @@ kind: Pipeline
 metadata:
   name: greeting-pipeline
 spec:
-  params:
-    - name: name
-      type: string
-      description: "Name to greet"
   tasks:
     - name: print-greeting
       taskSpec:
-        params:
-          - name: name
-            type: string
-            default: "Jack"
         steps:
           - name: echo
             image: ubuntu
             script: |
               #!/usr/bin/env bash
-              echo "hello $(params.name)"
+              echo "Resolver working!"
