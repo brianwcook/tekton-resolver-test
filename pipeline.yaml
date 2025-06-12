@@ -13,6 +13,7 @@ spec:
         params:
           - name: name
             type: string
+            default: "Jack"
         steps:
           - name: echo
             image: ubuntu
