@@ -6,7 +6,7 @@ spec:
   params:
     - name: username
       type: string
-    steps:
+  steps:
     - args:
       - hello
       - $(params.username)
