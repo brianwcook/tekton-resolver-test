@@ -1,17 +1,21 @@
+apiVersion: tekton.dev/v1
 kind: Pipeline
-apiVersion: tekton.dev/v1beta1
 metadata:
-  name: a-simple-pipeline
+  name: greeting-pipeline
 spec:
   params:
-    - name: username
+    - name: name
       type: string
-  steps:
-    - args:
-      - hello
-      - $(params.username)
-      command:
-      - echo
-      computeResources: {}
-      image: alpine:3
-      name: say-hello
+      description: "Name to greet"
+  tasks:
+    - name: print-greeting
+      taskSpec:
+        params:
+          - name: name
+            type: string
+        steps:
+          - name: echo
+            image: ubuntu
+            script: |
+              #!/usr/bin/env bash
+              echo "hello $(params.name)"
